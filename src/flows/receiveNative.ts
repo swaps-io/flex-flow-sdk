@@ -67,11 +67,14 @@ export interface FlexReceiveNativeFlow extends FlexFlowBase {
 }
 
 /**
- * Receive native with lock (sends manually)
+ * Encodes receive native flow:
+ * - receive native
+ * - key based confirm/refund
+ * - proof based confirm/refund (as fallback)
  *
- * Key hash based lock/unlock
+ * @param params Flow encode {@link FlexEncodeReceiveNativeFlowParams | params}
  *
- * Proof based lock/unlock as fallback
+ * @returns Encoded {@link FlexReceiveNativeFlow | flow}
  */
 export function flexEncodeReceiveNativeFlow(params: FlexEncodeReceiveNativeFlowParams): FlexReceiveNativeFlow {
   const receiveNativeData = flexEncodeReceiveNativeData({

@@ -25,6 +25,14 @@ export interface FlexSendNativeFlow extends FlexFlowBase {
   sendNativeHash: Hex;
 }
 
+/**
+ * Encodes send native flow:
+ * - send native
+ *
+ * @param params Flow encode {@link FlexEncodeSendNativeFlowParams | params}
+ *
+ * @returns Encoded {@link FlexSendNativeFlow | flow}
+ */
 export function flexEncodeSendNativeFlow(params: FlexEncodeSendNativeFlowParams): FlexSendNativeFlow {
   const sendNativeData = flexEncodeSendNativeData({
     sender: params.sender,

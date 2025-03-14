@@ -68,11 +68,14 @@ export interface FlexReceiveTokenFromFlow extends FlexFlowBase {
 }
 
 /**
- * Receive token from with lock (sends manually)
+ * Encodes receive token from flow:
+ * - receive token from
+ * - key based confirm/refund
+ * - proof based confirm/refund (as fallback)
  *
- * Key hash based lock/unlock
+ * @param params Flow encode {@link FlexEncodeReceiveTokenFromFlowParams | params}
  *
- * Proof based lock/unlock as fallback
+ * @returns Encoded {@link FlexReceiveTokenFromFlow | flow}
  */
 export function flexEncodeReceiveTokenFromFlow(params: FlexEncodeReceiveTokenFromFlowParams): FlexReceiveTokenFromFlow {
   const receiveTokenData = flexEncodeReceiveTokenFromData({

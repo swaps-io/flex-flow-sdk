@@ -19,6 +19,14 @@ export interface FlexSendTokenFlow extends FlexFlowBase {
   sendTokenHash: Hex;
 }
 
+/**
+ * Encodes send token flow:
+ * - send token
+ *
+ * @param params Flow encode {@link FlexEncodeSendTokenFlowParams | params}
+ *
+ * @returns Encoded {@link FlexSendTokenFlow | flow}
+ */
 export function flexEncodeSendTokenFlow(params: FlexEncodeSendTokenFlowParams): FlexSendTokenFlow {
   const sendTokenData = flexEncodeSendTokenData({
     sender: params.sender,
