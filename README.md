@@ -26,3 +26,5 @@ Flex Flow SDK expects installed peer dependencies as listed in the table below.
 | Dependency           | Version |
 | -------------------- |:-------:|
 | `@swaps-io/flex-sdk` |  v1+    |
+
+### Usage Examples
