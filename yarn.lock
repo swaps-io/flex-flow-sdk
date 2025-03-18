@@ -703,14 +703,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gerrit0/mini-shiki@npm:^1.24.0":
-  version: 1.27.2
-  resolution: "@gerrit0/mini-shiki@npm:1.27.2"
+"@gerrit0/mini-shiki@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@gerrit0/mini-shiki@npm:3.2.1"
   dependencies:
-    "@shikijs/engine-oniguruma": "npm:^1.27.2"
-    "@shikijs/types": "npm:^1.27.2"
-    "@shikijs/vscode-textmate": "npm:^10.0.1"
-  checksum: 10c0/aee681637d123e0e8c9ec154b117ce166dd8b4b9896341e617fef16d0b21ef91a17f6f90cc874137e33ca85b5898817b59bb8aea178cdb2fa6e75b0fff3640c2
+    "@shikijs/engine-oniguruma": "npm:^3.2.1"
+    "@shikijs/types": "npm:^3.2.1"
+    "@shikijs/vscode-textmate": "npm:^10.0.2"
+  checksum: 10c0/57ca704172fa203bdad8bd03ed059463b9a9e7fb46c6c288aca6619a6b3ea2663eba44ee528247175ac63e0fe4192e3e1d871627aadbd77651370c2447296b6a
   languageName: node
   linkType: hard
 
@@ -1272,27 +1272,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/engine-oniguruma@npm:^1.27.2":
-  version: 1.29.2
-  resolution: "@shikijs/engine-oniguruma@npm:1.29.2"
+"@shikijs/engine-oniguruma@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@shikijs/engine-oniguruma@npm:3.2.1"
   dependencies:
-    "@shikijs/types": "npm:1.29.2"
-    "@shikijs/vscode-textmate": "npm:^10.0.1"
-  checksum: 10c0/87d77e05af7fe862df40899a7034cbbd48d3635e27706873025e5035be578584d012f850208e97ca484d5e876bf802d4e23d0394d25026adb678eeb1d1f340ff
+    "@shikijs/types": "npm:3.2.1"
+    "@shikijs/vscode-textmate": "npm:^10.0.2"
+  checksum: 10c0/8c4c51738740f9cfa610ccefaaea2378833820336e4329bb88b9a2208e3deb994b0b7bea2d6657eb915fb668ca2090a2168a84dfeac2b820c1fee00631ca9bed
   languageName: node
   linkType: hard
 
-"@shikijs/types@npm:1.29.2, @shikijs/types@npm:^1.27.2":
-  version: 1.29.2
-  resolution: "@shikijs/types@npm:1.29.2"
+"@shikijs/types@npm:3.2.1, @shikijs/types@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@shikijs/types@npm:3.2.1"
   dependencies:
-    "@shikijs/vscode-textmate": "npm:^10.0.1"
+    "@shikijs/vscode-textmate": "npm:^10.0.2"
     "@types/hast": "npm:^3.0.4"
-  checksum: 10c0/37b4ac315effc03e7185aca1da0c2631ac55bdf613897476bd1d879105c41f86ccce6ebd0b78779513d88cc2ee371039f7efd95d604f77f21f180791978822b3
+  checksum: 10c0/3380fde198d466a8771137b7ca3d4756a54d7d24c6e65f852737472a280c12c07f2123b9ad3d7eb2edec86d8d2c53bc207abe0fc0c7f78d337e52e742dc34edf
   languageName: node
   linkType: hard
 
-"@shikijs/vscode-textmate@npm:^10.0.1":
+"@shikijs/vscode-textmate@npm:^10.0.2":
   version: 10.0.2
   resolution: "@shikijs/vscode-textmate@npm:10.0.2"
   checksum: 10c0/36b682d691088ec244de292dc8f91b808f95c89466af421cf84cbab92230f03c8348649c14b3251991b10ce632b0c715e416e992dd5f28ff3221dc2693fd9462
@@ -1329,7 +1329,7 @@ __metadata:
   resolution: "@swaps-io/flex-flow-sdk@workspace:."
   dependencies:
     "@openzeppelin/merkle-tree": "npm:1.0.8"
-    "@swaps-io/flex-sdk": ./packages/swaps-io/flex-sdk/v1.0.2/flex-sdk-v1.0.2.tgz
+    "@swaps-io/flex-sdk": ./packages/swaps-io/flex-sdk/v1.0.3/flex-sdk-v1.0.3.tgz
     "@trivago/prettier-plugin-sort-imports": "npm:5.2.2"
     "@types/jest": "npm:29.5.14"
     "@typescript-eslint/eslint-plugin": "npm:8.26.1"
@@ -1341,26 +1341,20 @@ __metadata:
     prettier: "npm:3.5.3"
     ts-jest: "npm:29.2.6"
     ts-node: "npm:10.9.2"
-    typedoc: "npm:0.27.9"
+    typedoc: "npm:0.28.0"
     typescript: "npm:5.8.2"
-    viem: "npm:2.23.10"
+    viem: "npm:2.23.12"
   peerDependencies:
     "@swaps-io/flex-sdk": ">=1 <2"
   languageName: unknown
   linkType: soft
 
-"@swaps-io/flex-sdk@file:./packages/swaps-io/flex-sdk/v1.0.2/flex-sdk-v1.0.2.tgz::locator=%40swaps-io%2Fflex-flow-sdk%40workspace%3A.":
-  version: 1.0.2
-  resolution: "@swaps-io/flex-sdk@file:./packages/swaps-io/flex-sdk/v1.0.2/flex-sdk-v1.0.2.tgz#./packages/swaps-io/flex-sdk/v1.0.2/flex-sdk-v1.0.2.tgz::hash=c53cce&locator=%40swaps-io%2Fflex-flow-sdk%40workspace%3A."
+"@swaps-io/flex-sdk@file:./packages/swaps-io/flex-sdk/v1.0.3/flex-sdk-v1.0.3.tgz::locator=%40swaps-io%2Fflex-flow-sdk%40workspace%3A.":
+  version: 1.0.3
+  resolution: "@swaps-io/flex-sdk@file:./packages/swaps-io/flex-sdk/v1.0.3/flex-sdk-v1.0.3.tgz#./packages/swaps-io/flex-sdk/v1.0.3/flex-sdk-v1.0.3.tgz::hash=b6596c&locator=%40swaps-io%2Fflex-flow-sdk%40workspace%3A."
   peerDependencies:
-    "@openzeppelin/merkle-tree": ">=1 <2"
-    viem: ">=2 <3"
-  peerDependenciesMeta:
-    "@openzeppelin/merkle-tree":
-      optional: true
-    viem:
-      optional: true
-  checksum: 10c0/29f66931dabcc2835dcd9a3fa104022d6a2818510814428fc6c6bc6f3330bc5cad8f0b2ac301e64e64f4f798f3639acf4d9af70ffc5aab26a0fdd5009ff0477d
+    "@noble/hashes": ">=1 <2"
+  checksum: 10c0/e15b31121f005f5af53c7123b11a381691be0786826db633364d3bb283a88f8cdab5a8907c46b89736e0dfe71b8381d77d67c0059a7baa12e8485d4e669a5daf
   languageName: node
   linkType: hard
 
@@ -2042,9 +2036,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001688":
-  version: 1.0.30001704
-  resolution: "caniuse-lite@npm:1.0.30001704"
-  checksum: 10c0/4efa0ece51ef58e7ce7e7c8cd7b50372bcb910581a47397be5c086c046c3cd436d123b734351fb20f638c322b339198edf89b5b632ff59bdd171c74ff7f4efcf
+  version: 1.0.30001706
+  resolution: "caniuse-lite@npm:1.0.30001706"
+  checksum: 10c0/b502d0a509611fd5b009e1123d482e983696984b6b749c3f485fd8d02cc58376c59cf0bb15f22fa2d337da104970edd27dd525d4663cebc728e26ac4adedff0d
   languageName: node
   linkType: hard
 
@@ -2263,9 +2257,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.73":
-  version: 1.5.118
-  resolution: "electron-to-chromium@npm:1.5.118"
-  checksum: 10c0/7082f349d2bf5cc04cc66b14d53caa198200e9bd7c80b57652e4c098ac3af64b9958d5b19b657a7b2048f3d1a3098978d6a63bcfe9ce2bdba38d418fbc309859
+  version: 1.5.120
+  resolution: "electron-to-chromium@npm:1.5.120"
+  checksum: 10c0/807c88e912748665a1eacd356672df88ce1ee4e6476c2bef084ee9e7ba184d7a94512a5f98218ab6deab920e78cbaec40f6cba75277c381fcc294e538a25d06d
   languageName: node
   linkType: hard
 
@@ -4947,20 +4941,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:0.27.9":
-  version: 0.27.9
-  resolution: "typedoc@npm:0.27.9"
+"typedoc@npm:0.28.0":
+  version: 0.28.0
+  resolution: "typedoc@npm:0.28.0"
   dependencies:
-    "@gerrit0/mini-shiki": "npm:^1.24.0"
+    "@gerrit0/mini-shiki": "npm:^3.2.1"
     lunr: "npm:^2.3.9"
     markdown-it: "npm:^14.1.0"
     minimatch: "npm:^9.0.5"
-    yaml: "npm:^2.6.1"
+    yaml: "npm:^2.7.0 "
   peerDependencies:
     typescript: 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x
   bin:
     typedoc: bin/typedoc
-  checksum: 10c0/999668d9d23e1824b762e2c411e2c0860d0ce4a2e61f23a2c31d36a1d6337a763553bc75205aee25ce34659e9315315c720694e9eccd7e7e4755873fdfec1192
+  checksum: 10c0/44c7086bd359bdad00b69d6d236e1d33aa4c1516023fa223a5bd5f148f563a71ad39289ec161ae277440fc41afeabfa2361836a3e7a530c4ee085f5ebcf6266c
   languageName: node
   linkType: hard
 
@@ -5066,9 +5060,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"viem@npm:2.23.10":
-  version: 2.23.10
-  resolution: "viem@npm:2.23.10"
+"viem@npm:2.23.12":
+  version: 2.23.12
+  resolution: "viem@npm:2.23.12"
   dependencies:
     "@noble/curves": "npm:1.8.1"
     "@noble/hashes": "npm:1.7.1"
@@ -5083,7 +5077,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/85f2f36ca586c5f6a0c50a052170b5c7a1a07fa7336fd0a1daa1fc627d9724202c66b3ddb7ccc76d6eb0f8402210ed154a74db942122cee44b1da778b366e07c
+  checksum: 10c0/4bed6d5266879ce49e4a4d3cbd8ef310505fb4c605e4ae59a539a7387ce2d7bfa7c5dcad2e3a5adb6fb282d547fb5a5efbf6aeb27042490384e864798aeb751d
   languageName: node
   linkType: hard
 
@@ -5207,7 +5201,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.6.1":
+"yaml@npm:^2.7.0 ":
   version: 2.7.0
   resolution: "yaml@npm:2.7.0"
   bin:

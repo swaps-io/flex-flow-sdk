@@ -1,17 +1,13 @@
-import { Hex, flexInit } from '@swaps-io/flex-sdk';
+import { FlexHex } from '@swaps-io/flex-sdk';
 
 import { flexJoinFlows } from '../src';
 
-const HASHES: Hex[] = [
+const HASHES: FlexHex[] = [
   '0x0123456701234567012345670123456701234567012345670123456701234567',
   '0x4444333322221111444433332222111144443333222211114444333322221111',
   '0x8888888888888888888888888888888888888888888888888888888888888888',
   '0x0707070707070707070707070707070707070707070707070707070707070707',
 ];
-
-beforeAll(async () => {
-  await flexInit; // TODO: ESM repro?
-});
 
 test('Should join empty', () => {
   const join = flexJoinFlows([]);

@@ -5,6 +5,7 @@ module.exports = {
   validation: {
     notDocumented: true,
   },
+  treatWarningsAsErrors: true,
   excludePrivate: true,
   categoryOrder: [
     '*',

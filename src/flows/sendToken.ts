@@ -1,22 +1,28 @@
-import { AsHexValue, FlexSendTokenData, Hex, flexCalcSendTokenHash, flexEncodeSendTokenData } from '@swaps-io/flex-sdk';
+import {
+  FlexHex,
+  FlexSendTokenData,
+  FlexToHexValue,
+  flexCalcSendTokenHash,
+  flexEncodeSendTokenData,
+} from '@swaps-io/flex-sdk';
 
 import { FlexFlowBase } from '../base';
 
 export interface FlexEncodeSendTokenFlowParams {
-  sender: AsHexValue;
-  receiver: AsHexValue;
-  token: AsHexValue;
-  amount: AsHexValue;
-  start: AsHexValue;
-  duration: AsHexValue;
-  group: AsHexValue;
+  sender: FlexToHexValue;
+  receiver: FlexToHexValue;
+  token: FlexToHexValue;
+  amount: FlexToHexValue;
+  start: FlexToHexValue;
+  duration: FlexToHexValue;
+  group: FlexToHexValue;
 
-  sendTokenDomain: AsHexValue;
+  sendTokenDomain: FlexToHexValue;
 }
 
 export interface FlexSendTokenFlow extends FlexFlowBase {
   sendTokenData: FlexSendTokenData;
-  sendTokenHash: Hex;
+  sendTokenHash: FlexHex;
 }
 
 /**

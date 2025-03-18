@@ -1,13 +1,13 @@
 import {
-  AsHexValue,
   FLEX_SEND_EVENT_SIGNATURE,
   FLEX_SEND_FAIL_EVENT_SIGNATURE,
   FlexConfirmTokenData,
   FlexConfirmTokenProofData,
+  FlexHex,
   FlexReceiveTokenData,
   FlexRefundTokenData,
   FlexRefundTokenProofData,
-  Hex,
+  FlexToHexValue,
   flexCalcConfirmTokenHash,
   flexCalcConfirmTokenProofHash,
   flexCalcReceiveTokenFromHash,
@@ -23,48 +23,48 @@ import {
 import { FlexFlowBase } from '../base';
 
 export interface FlexEncodeReceiveTokenFromFlowParams {
-  sender: AsHexValue;
+  sender: FlexToHexValue;
   senderContract: boolean;
   senderNoMessageWrap?: boolean;
   senderNoRetryAsContract?: boolean;
 
-  receiver: AsHexValue;
+  receiver: FlexToHexValue;
 
-  token: AsHexValue;
-  amount: AsHexValue;
-  deadline: AsHexValue;
-  nonce: AsHexValue;
+  token: FlexToHexValue;
+  amount: FlexToHexValue;
+  deadline: FlexToHexValue;
+  nonce: FlexToHexValue;
 
-  confirmReceiver?: AsHexValue;
-  refundReceiver?: AsHexValue;
+  confirmReceiver?: FlexToHexValue;
+  refundReceiver?: FlexToHexValue;
 
-  confirmKeyHash: AsHexValue;
-  refundKeyHash: AsHexValue;
+  confirmKeyHash: FlexToHexValue;
+  refundKeyHash: FlexToHexValue;
 
-  proofEventChain: AsHexValue;
-  confirmProofEventSignature?: AsHexValue;
-  refundProofEventSignature?: AsHexValue;
+  proofEventChain: FlexToHexValue;
+  confirmProofEventSignature?: FlexToHexValue;
+  refundProofEventSignature?: FlexToHexValue;
 
-  receiveTokenDomain: AsHexValue;
-  settleTokenDomain: AsHexValue;
-  settleTokenProofDomain: AsHexValue;
+  receiveTokenDomain: FlexToHexValue;
+  settleTokenDomain: FlexToHexValue;
+  settleTokenProofDomain: FlexToHexValue;
 }
 
 export interface FlexReceiveTokenFromFlow extends FlexFlowBase {
   receiveTokenData: FlexReceiveTokenData;
-  receiveTokenHash: Hex;
+  receiveTokenHash: FlexHex;
 
   confirmTokenData: FlexConfirmTokenData;
-  confirmTokenHash: Hex;
+  confirmTokenHash: FlexHex;
 
   refundTokenData: FlexRefundTokenData;
-  refundTokenHash: Hex;
+  refundTokenHash: FlexHex;
 
   confirmTokenProofData: FlexConfirmTokenProofData;
-  confirmTokenProofHash: Hex;
+  confirmTokenProofHash: FlexHex;
 
   refundTokenProofData: FlexRefundTokenProofData;
-  refundTokenProofHash: Hex;
+  refundTokenProofHash: FlexHex;
 }
 
 /**

@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@openzeppelin/merkle-tree": "1.0.8",
-    "@swaps-io/flex-sdk": "./packages/swaps-io/flex-sdk/v1.0.2/flex-sdk-v1.0.2.tgz",
+    "@swaps-io/flex-sdk": "./packages/swaps-io/flex-sdk/v1.0.3/flex-sdk-v1.0.3.tgz",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
     "@types/jest": "29.5.14",
     "@typescript-eslint/eslint-plugin": "8.26.1",
@@ -66,9 +66,9 @@
     "prettier": "3.5.3",
     "ts-jest": "29.2.6",
     "ts-node": "10.9.2",
-    "typedoc": "0.27.9",
+    "typedoc": "0.28.0",
     "typescript": "5.8.2",
-    "viem": "2.23.10"
+    "viem": "2.23.12"
   },
   "peerDependencies": {
     "@swaps-io/flex-sdk": ">=1 <2"

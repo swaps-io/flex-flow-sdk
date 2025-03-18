@@ -1,7 +1,7 @@
 import {
-  AsHexValue,
+  FlexHex,
   FlexSendNativeData,
-  Hex,
+  FlexToHexValue,
   flexCalcSendNativeHash,
   flexEncodeSendNativeData,
 } from '@swaps-io/flex-sdk';
@@ -9,20 +9,20 @@ import {
 import { FlexFlowBase } from '../base';
 
 export interface FlexEncodeSendNativeFlowParams {
-  sender: AsHexValue;
-  receiver: AsHexValue;
-  native: AsHexValue;
-  amount: AsHexValue;
-  start: AsHexValue;
-  duration: AsHexValue;
-  group: AsHexValue;
+  sender: FlexToHexValue;
+  receiver: FlexToHexValue;
+  native: FlexToHexValue;
+  amount: FlexToHexValue;
+  start: FlexToHexValue;
+  duration: FlexToHexValue;
+  group: FlexToHexValue;
 
-  sendNativeDomain: AsHexValue;
+  sendNativeDomain: FlexToHexValue;
 }
 
 export interface FlexSendNativeFlow extends FlexFlowBase {
   sendNativeData: FlexSendNativeData;
-  sendNativeHash: Hex;
+  sendNativeHash: FlexHex;
 }
 
 /**

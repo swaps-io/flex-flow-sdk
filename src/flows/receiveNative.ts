@@ -1,13 +1,13 @@
 import {
-  AsHexValue,
   FLEX_SEND_EVENT_SIGNATURE,
   FLEX_SEND_FAIL_EVENT_SIGNATURE,
   FlexConfirmNativeData,
   FlexConfirmNativeProofData,
+  FlexHex,
   FlexReceiveNativeData,
   FlexRefundNativeData,
   FlexRefundNativeProofData,
-  Hex,
+  FlexToHexValue,
   flexCalcConfirmNativeHash,
   flexCalcConfirmNativeProofHash,
   flexCalcReceiveNativeHash,
@@ -23,47 +23,47 @@ import {
 import { FlexFlowBase } from '../base';
 
 export interface FlexEncodeReceiveNativeFlowParams {
-  sender: AsHexValue;
+  sender: FlexToHexValue;
 
-  receiver: AsHexValue;
+  receiver: FlexToHexValue;
   receiverContract: boolean;
   receiverNoMessageWrap?: boolean;
   receiverNoRetryAsContract?: boolean;
 
-  amount: AsHexValue;
-  deadline: AsHexValue;
-  nonce: AsHexValue;
+  amount: FlexToHexValue;
+  deadline: FlexToHexValue;
+  nonce: FlexToHexValue;
 
-  confirmReceiver?: AsHexValue;
-  refundReceiver?: AsHexValue;
+  confirmReceiver?: FlexToHexValue;
+  refundReceiver?: FlexToHexValue;
 
-  confirmKeyHash: AsHexValue;
-  refundKeyHash: AsHexValue;
+  confirmKeyHash: FlexToHexValue;
+  refundKeyHash: FlexToHexValue;
 
-  proofEventChain: AsHexValue;
-  confirmProofEventSignature?: AsHexValue;
-  refundProofEventSignature?: AsHexValue;
+  proofEventChain: FlexToHexValue;
+  confirmProofEventSignature?: FlexToHexValue;
+  refundProofEventSignature?: FlexToHexValue;
 
-  receiveNativeDomain: AsHexValue;
-  settleNativeDomain: AsHexValue;
-  settleNativeProofDomain: AsHexValue;
+  receiveNativeDomain: FlexToHexValue;
+  settleNativeDomain: FlexToHexValue;
+  settleNativeProofDomain: FlexToHexValue;
 }
 
 export interface FlexReceiveNativeFlow extends FlexFlowBase {
   receiveNativeData: FlexReceiveNativeData;
-  receiveNativeHash: Hex;
+  receiveNativeHash: FlexHex;
 
   confirmNativeData: FlexConfirmNativeData;
-  confirmNativeHash: Hex;
+  confirmNativeHash: FlexHex;
 
   refundNativeData: FlexRefundNativeData;
-  refundNativeHash: Hex;
+  refundNativeHash: FlexHex;
 
   confirmNativeProofData: FlexConfirmNativeProofData;
-  confirmNativeProofHash: Hex;
+  confirmNativeProofHash: FlexHex;
 
   refundNativeProofData: FlexRefundNativeProofData;
-  refundNativeProofHash: Hex;
+  refundNativeProofHash: FlexHex;
 }
 
 /**

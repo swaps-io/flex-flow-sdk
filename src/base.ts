@@ -1,5 +1,5 @@
-import { Hex } from '@swaps-io/flex-sdk';
+import { FlexHex } from '@swaps-io/flex-sdk';
 
 export interface FlexFlowBase {
-  componentHashes: Hex[];
+  componentHashes: FlexHex[];
 }

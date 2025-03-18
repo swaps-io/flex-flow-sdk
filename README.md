@@ -61,7 +61,7 @@ const FLEX_DOMAINS = {
 const nativeActor = '0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef';
 
 // Actor who gives token to get the native
-const tokenActor = '0xc00lc0dec00lc0dec00lc0dec00lc0dec00lc0de';
+const tokenActor = '0xc001c0dec001c0dec001c0dec001c0dec001c0de';
 const tokenActorContract = true;
 const tokenActorNonce = 666_777_888;
 const tokenActorGroup = 451;

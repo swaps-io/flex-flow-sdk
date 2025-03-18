@@ -1,4 +1,4 @@
-import { Hex } from '@swaps-io/flex-sdk';
+import { FlexHex } from '@swaps-io/flex-sdk';
 
 import { FlexFlowBase } from './base';
 
@@ -50,7 +50,7 @@ export function flexJoinFlows<
 >(flows: [F0, F1, F2, F3, F4, F5, F6, F7]): F0 & F1 & F2 & F3 & F4 & F5 & F6 & F7;
 
 export function flexJoinFlows(flows: FlexFlowBase[]): FlexFlowBase {
-  const joinHashes = new Set<Hex>();
+  const joinHashes = new Set<FlexHex>();
   const joinData: Record<string, unknown> = {};
 
   for (const flow of flows) {
