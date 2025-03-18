@@ -10,23 +10,18 @@ SDK for interaction with Flex protocol [contracts](https://github.com/swaps-io/f
 
 ### Installation
 
-The SDK installation process assumes that [Node.js](https://nodejs.org/en) (version 22 is recommended) is installed on
-machine and a project where SDK is planned to be integrated is already created.
+The SDK installation process assumes that the project to integrate the SDK into is already initialized.
 
 1. Install `@swaps-io/flex-flow-sdk` as a package dependency of the project:
    - `npm install @swaps-io/flex-flow-sdk`
-   - `yarn add @swaps-io/flex-flow-sdk`
-2. Install [peer dependencies](#peer-dependencies) of SDK according to the needs of the project
+   - or `yarn add @swaps-io/flex-flow-sdk`
+   - or using other package manager of choice
+2. Install `@swaps-io/flex-sdk` peer dependency. Note that this package needs `@noble/hashes`
+   [peer dependency](https://github.com/swaps-io/flex-sdk/blob/main/README.md#installation) provided.
 
-Both ESM and CJS targets are supported.
-
-### Peer Dependencies
-
-Flex Flow SDK expects installed peer dependencies as listed in the table below.
-
-| Dependency           | Version |
-| -------------------- |:-------:|
-| `@swaps-io/flex-sdk` |  v1+    |
+> [!NOTE]
+>
+> Both ESM and CJS module systems are supported by the SDK.
 
 ### Usage Examples
 
