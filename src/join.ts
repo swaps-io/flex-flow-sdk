@@ -49,6 +49,17 @@ export function flexJoinFlows<
   F7 extends FlexFlowBase,
 >(flows: [F0, F1, F2, F3, F4, F5, F6, F7]): F0 & F1 & F2 & F3 & F4 & F5 & F6 & F7;
 
+/**
+ * Joins multiple flows into one.
+ *
+ * Asserts flow component hashes are unique, as well as there is no duplicates across combined flow data.
+ *
+ * @param flows Flows to join into one.
+ *
+ * @returns Combined flow.
+ *
+ * @category Join
+ */
 export function flexJoinFlows(flows: FlexFlowBase[]): FlexFlowBase {
   const joinHashes = new Set<FlexHex>();
   const joinData: Record<string, unknown> = {};

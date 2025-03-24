@@ -22,6 +22,11 @@ import {
 
 import { FlexFlowBase } from '../base';
 
+/**
+ * TODO
+ *
+ * @category Receive • Native
+ */
 export interface FlexEncodeReceiveNativeFlowParams {
   sender: FlexToHexValue;
 
@@ -49,6 +54,11 @@ export interface FlexEncodeReceiveNativeFlowParams {
   settleNativeProofDomain: FlexToHexValue;
 }
 
+/**
+ * TODO
+ *
+ * @category Receive • Native
+ */
 export interface FlexReceiveNativeFlow extends FlexFlowBase {
   receiveNativeData: FlexReceiveNativeData;
   receiveNativeHash: FlexHex;
@@ -67,6 +77,8 @@ export interface FlexReceiveNativeFlow extends FlexFlowBase {
 }
 
 /**
+ * TODO
+ *
  * Encodes receive native flow:
  * - receive native
  * - key based confirm/refund
@@ -75,6 +87,8 @@ export interface FlexReceiveNativeFlow extends FlexFlowBase {
  * @param params Flow encode {@link FlexEncodeReceiveNativeFlowParams | params}
  *
  * @returns Encoded {@link FlexReceiveNativeFlow | flow}
+ *
+ * @category Receive • Native
  */
 export function flexEncodeReceiveNativeFlow(params: FlexEncodeReceiveNativeFlowParams): FlexReceiveNativeFlow {
   const receiveNativeData = flexEncodeReceiveNativeData({

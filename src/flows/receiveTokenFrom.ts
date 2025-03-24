@@ -22,6 +22,11 @@ import {
 
 import { FlexFlowBase } from '../base';
 
+/**
+ * TODO
+ *
+ * @category Receive • Token From
+ */
 export interface FlexEncodeReceiveTokenFromFlowParams {
   sender: FlexToHexValue;
   senderContract: boolean;
@@ -50,6 +55,11 @@ export interface FlexEncodeReceiveTokenFromFlowParams {
   settleTokenProofDomain: FlexToHexValue;
 }
 
+/**
+ * TODO
+ *
+ * @category Receive • Token From
+ */
 export interface FlexReceiveTokenFromFlow extends FlexFlowBase {
   receiveTokenData: FlexReceiveTokenData;
   receiveTokenHash: FlexHex;
@@ -68,6 +78,8 @@ export interface FlexReceiveTokenFromFlow extends FlexFlowBase {
 }
 
 /**
+ * TODO
+ *
  * Encodes receive token from flow:
  * - receive token from
  * - key based confirm/refund
@@ -76,6 +88,8 @@ export interface FlexReceiveTokenFromFlow extends FlexFlowBase {
  * @param params Flow encode {@link FlexEncodeReceiveTokenFromFlowParams | params}
  *
  * @returns Encoded {@link FlexReceiveTokenFromFlow | flow}
+ *
+ * @category Receive • Token From
  */
 export function flexEncodeReceiveTokenFromFlow(params: FlexEncodeReceiveTokenFromFlowParams): FlexReceiveTokenFromFlow {
   const receiveTokenData = flexEncodeReceiveTokenFromData({
