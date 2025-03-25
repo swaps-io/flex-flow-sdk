@@ -23,69 +23,187 @@ import {
 import { FlexFlowBase } from '../base';
 
 /**
- * TODO
+ * Parameters for {@link flexEncodeReceiveTokenFlow} function.
  *
  * @category Receive • Token
  */
 export interface FlexEncodeReceiveTokenFlowParams {
+  /**
+   * Address of token sender _(20 bytes)_.
+   */
   sender: FlexToHexValue;
 
+  /**
+   * Address of token receiver _(20 bytes)_.
+   */
   receiver: FlexToHexValue;
+
+  /**
+   * Should verify receiver signature as _contract_ one rather than EOA.
+   */
   receiverContract: boolean;
+
+  /**
+   * Should not wrap receiver signed message into EIP-191, i.e. signature is of _raw_ data hash.
+   *
+   * @default false
+   */
   receiverNoMessageWrap?: boolean;
+
+  /**
+   * Should not fallback to receiver signature verification as _contract_ after failed EOA check. In other words,
+   * asserts the signature is known to be EOA and should not be attempted as contract one.
+   *
+   * @default false
+   */
   receiverNoRetryAsContract?: boolean;
 
+  /**
+   * Address of ERC-20 token to perform receive of _(20 bytes)_.
+   */
   token: FlexToHexValue;
+
+  /**
+   * Amount of token asset to send _(32 bytes)_.
+   */
   amount: FlexToHexValue;
+
+  /**
+   * Deadline of receive token operation, i.e. time after which attempt to call receive operation will fail
+   * _(6 bytes)_.
+   */
   deadline: FlexToHexValue;
+
+  /**
+   * Nonce of receive token operation selected by {@link receiver} _(6 bytes)_.
+   */
   nonce: FlexToHexValue;
 
+  /**
+   * Address of asset receiver as result of confirm _(20 bytes)_.
+   *
+   * @default receiver
+   */
   confirmReceiver?: FlexToHexValue;
+
+  /**
+   * Address of asset receiver as result of refund _(20 bytes)_.
+   *
+   * @default sender
+   */
   refundReceiver?: FlexToHexValue;
 
+  /**
+   * Hash of key that _authorizes_ confirm operation _(32 bytes)_.
+   */
   confirmKeyHash: FlexToHexValue;
+
+  /**
+   * Hash of key that _authorizes_ refund operation _(32 bytes)_.
+   */
   refundKeyHash: FlexToHexValue;
 
+  /**
+   * Chain ID of proof event that authorizes confirm & refund operations _(4 bytes)_.
+   */
   proofEventChain: FlexToHexValue;
+
+  /**
+   * Signature (i.e. topic #0) of event that authorizes confirm operation _(32 bytes)_.
+   *
+   * @default FlexSend signature
+   */
   confirmProofEventSignature?: FlexToHexValue;
+
+  /**
+   * Signature (i.e. topic #0) of event that authorizes refund operation _(32 bytes)_.
+   *
+   * @default FlexSendFail signature
+   */
   refundProofEventSignature?: FlexToHexValue;
 
+  /**
+   * Receive token domain to calculate component hash for _(8 bytes)_.
+   */
   receiveTokenDomain: FlexToHexValue;
+
+  /**
+   * Settle token domain to calculate component hash for _(8 bytes)_.
+   */
   settleTokenDomain: FlexToHexValue;
+
+  /**
+   * Settle token proof domain to calculate component hash for _(8 bytes)_.
+   */
   settleTokenProofDomain: FlexToHexValue;
 }
 
 /**
- * TODO
+ * Receive token flow representation.
  *
  * @category Receive • Token
  */
 export interface FlexReceiveTokenFlow extends FlexFlowBase {
+  /**
+   * Receive token component data.
+   */
   receiveTokenData: FlexReceiveTokenData;
+
+  /**
+   * Receive token component hash.
+   */
   receiveTokenHash: FlexHex;
 
+  /**
+   * Confirm token component data.
+   */
   confirmTokenData: FlexConfirmTokenData;
+
+  /**
+   * Confirm token component hash.
+   */
   confirmTokenHash: FlexHex;
 
+  /**
+   * Refund token component data.
+   */
   refundTokenData: FlexRefundTokenData;
+
+  /**
+   * Refund token component hash.
+   */
   refundTokenHash: FlexHex;
 
+  /**
+   * Confirm token proof component data.
+   */
   confirmTokenProofData: FlexConfirmTokenProofData;
+
+  /**
+   * Confirm token proof component hash.
+   */
   confirmTokenProofHash: FlexHex;
 
+  /**
+   * Refund token proof component data.
+   */
   refundTokenProofData: FlexRefundTokenProofData;
+
+  /**
+   * Refund token proof component hash.
+   */
   refundTokenProofHash: FlexHex;
 }
 
 /**
- * TODO
+ * Encodes a flow where ERC-20 token asset is transferred from _sender_ to contract, and _receiver_ gets this asset
+ * after confirmation of other operation (for example, asset sent in other network). Otherwise, _sender_ is refunded
+ * their asset. The call is expected to be preformed by _sender_.
  *
- * Encodes receive token flow:
- * - receive token
- * - key based confirm/refund
- * - proof based confirm/refund (as fallback)
+ * This flow allows to confirm or refund by reveal of the corresponding key matching the agreed key hash. As a fallback,
+ * this flow also allows confirmation by providing proof.
  *
- * @param params Flow encode {@link FlexEncodeReceiveTokenFlowParams | params}
+ * @param params Function {@link FlexEncodeReceiveTokenFlowParams | parameters}.
  *
  * @returns Encoded {@link FlexReceiveTokenFlow | flow}
  *

@@ -23,68 +23,182 @@ import {
 import { FlexFlowBase } from '../base';
 
 /**
- * TODO
+ * Parameters for {@link flexEncodeReceiveNativeFlow} function.
  *
  * @category Receive • Native
  */
 export interface FlexEncodeReceiveNativeFlowParams {
+  /**
+   * Address of native sender _(20 bytes)_.
+   */
   sender: FlexToHexValue;
 
+  /**
+   * Address of native receiver _(20 bytes)_.
+   */
   receiver: FlexToHexValue;
+
+  /**
+   * Should verify receiver signature as _contract_ one rather than EOA.
+   */
   receiverContract: boolean;
+
+  /**
+   * Should not wrap receiver signed message into EIP-191, i.e. signature is of _raw_ data hash.
+   *
+   * @default false
+   */
   receiverNoMessageWrap?: boolean;
+
+  /**
+   * Should not fallback to receiver signature verification as _contract_ after failed EOA check. In other words,
+   * asserts the signature is known to be EOA and should not be attempted as contract one.
+   *
+   * @default false
+   */
   receiverNoRetryAsContract?: boolean;
 
+  /**
+   * Amount of native asset to send _(32 bytes)_.
+   */
   amount: FlexToHexValue;
+
+  /**
+   * Deadline of receive native operation, i.e. time after which attempt to call receive operation will fail
+   * _(6 bytes)_.
+   */
   deadline: FlexToHexValue;
+
+  /**
+   * Nonce of receive native operation selected by {@link receiver} _(6 bytes)_.
+   */
   nonce: FlexToHexValue;
 
+  /**
+   * Address of asset receiver as result of confirm _(20 bytes)_.
+   *
+   * @default receiver
+   */
   confirmReceiver?: FlexToHexValue;
+
+  /**
+   * Address of asset receiver as result of refund _(20 bytes)_.
+   *
+   * @default sender
+   */
   refundReceiver?: FlexToHexValue;
 
+  /**
+   * Hash of key that _authorizes_ confirm operation _(32 bytes)_.
+   */
   confirmKeyHash: FlexToHexValue;
+
+  /**
+   * Hash of key that _authorizes_ refund operation _(32 bytes)_.
+   */
   refundKeyHash: FlexToHexValue;
 
+  /**
+   * Chain ID of proof event that authorizes confirm & refund operations _(4 bytes)_.
+   */
   proofEventChain: FlexToHexValue;
+
+  /**
+   * Signature (i.e. topic #0) of event that authorizes confirm operation _(32 bytes)_.
+   *
+   * @default FlexSend signature
+   */
   confirmProofEventSignature?: FlexToHexValue;
+
+  /**
+   * Signature (i.e. topic #0) of event that authorizes refund operation _(32 bytes)_.
+   *
+   * @default FlexSendFail signature
+   */
   refundProofEventSignature?: FlexToHexValue;
 
+  /**
+   * Receive native domain to calculate component hash for _(8 bytes)_.
+   */
   receiveNativeDomain: FlexToHexValue;
+
+  /**
+   * Settle native domain to calculate component hash for _(8 bytes)_.
+   */
   settleNativeDomain: FlexToHexValue;
+
+  /**
+   * Settle native proof domain to calculate component hash for _(8 bytes)_.
+   */
   settleNativeProofDomain: FlexToHexValue;
 }
 
 /**
- * TODO
+ * Receive native flow representation.
  *
  * @category Receive • Native
  */
 export interface FlexReceiveNativeFlow extends FlexFlowBase {
+  /**
+   * Receive native component data.
+   */
   receiveNativeData: FlexReceiveNativeData;
+
+  /**
+   * Receive native component hash.
+   */
   receiveNativeHash: FlexHex;
 
+  /**
+   * Confirm native component data.
+   */
   confirmNativeData: FlexConfirmNativeData;
+
+  /**
+   * Confirm native component hash.
+   */
   confirmNativeHash: FlexHex;
 
+  /**
+   * Refund native component data.
+   */
   refundNativeData: FlexRefundNativeData;
+
+  /**
+   * Refund native component hash.
+   */
   refundNativeHash: FlexHex;
 
+  /**
+   * Confirm native proof component data.
+   */
   confirmNativeProofData: FlexConfirmNativeProofData;
+
+  /**
+   * Confirm native proof component hash.
+   */
   confirmNativeProofHash: FlexHex;
 
+  /**
+   * Refund native proof component data.
+   */
   refundNativeProofData: FlexRefundNativeProofData;
+
+  /**
+   * Refund native proof component hash.
+   */
   refundNativeProofHash: FlexHex;
 }
 
 /**
- * TODO
+ * Encodes a flow where native asset is transferred from _sender_ to contract, and _receiver_ gets this asset after
+ * confirmation of other operation (for example, asset sent in other network). Otherwise, _sender_ is refunded their
+ * asset. The call is expected to be preformed by _sender_.
  *
- * Encodes receive native flow:
- * - receive native
- * - key based confirm/refund
- * - proof based confirm/refund (as fallback)
+ * This flow allows to confirm or refund by reveal of the corresponding key matching the agreed key hash. As a fallback,
+ * this flow also allows confirmation by providing proof.
  *
- * @param params Flow encode {@link FlexEncodeReceiveNativeFlowParams | params}
+ * @param params Function {@link FlexEncodeReceiveNativeFlowParams | parameters}.
  *
  * @returns Encoded {@link FlexReceiveNativeFlow | flow}
  *

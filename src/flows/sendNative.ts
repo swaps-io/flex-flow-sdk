@@ -56,7 +56,7 @@ export interface FlexEncodeSendNativeFlowParams {
 }
 
 /**
- * Send native component flow representation.
+ * Send native flow representation.
  *
  * @category Send • Native
  */
@@ -73,7 +73,8 @@ export interface FlexSendNativeFlow extends FlexFlowBase {
 }
 
 /**
- * Encodes a flow where _sender_ transfers exact amount of native asset to _receiver_.
+ * Encodes a flow where _sender_ transfers exact amount of native asset to _receiver_. The call is expected to be
+ * preformed by _sender_.
  *
  * This flow assumes the intention to send asset according to params comes from additional factors (i.e. modifying
  * params would lead to _sender_ penalty).

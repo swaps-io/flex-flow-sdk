@@ -61,7 +61,7 @@ export interface FlexEncodeSendTokenFlowParams {
 }
 
 /**
- * Send token component flow representation.
+ * Send token flow representation.
  *
  * @category Send • Token
  */
@@ -78,7 +78,8 @@ export interface FlexSendTokenFlow extends FlexFlowBase {
 }
 
 /**
- * Encodes a flow where _sender_ transfers exact amount of ERC-20 token asset to _receiver_.
+ * Encodes a flow where _sender_ transfers exact amount of ERC-20 token asset to _receiver_. The call is expected to be
+ * preformed by _sender_.
  *
  * This flow assumes the intention to send asset according to params comes from additional factors (i.e. modifying
  * params would lead to _sender_ penalty).
