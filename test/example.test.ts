@@ -3,6 +3,7 @@ import { flexCalcBranch, flexCalcTree, flexCalcTreeHash } from '@swaps-io/flex-s
 import { flexEncodeReceiveNativeFlow, flexEncodeSendTokenFlow, flexJoinFlows } from '../src';
 
 test('Should be working example', async () => {
+  // From Flex contracts deploy info
   const FLEX_DOMAINS = {
     999: {
       receiveNative: '0xd0d0d01010101010',
@@ -20,8 +21,8 @@ test('Should be working example', async () => {
   // Actor who gives token to get the native
   const tokenActor = '0xc001c0dec001c0dec001c0dec001c0dec001c0de';
   const tokenActorContract = true;
-  const tokenActorNonce = 666_777_888;
-  const tokenActorGroup = 451;
+  const tokenActorReceiveNonce = 666_777_888;
+  const tokenActorSendNonce = 451;
 
   const nativeChainId = 999;
   const tokenChainId = 133337;
@@ -31,9 +32,9 @@ test('Should be working example', async () => {
   const tokenAmount = 92_100000n; // 92.1 (6 decimals)
 
   // Time in seconds
-  const startTime = BigInt(new Date().getTime()) / 1000n;
-  const receiveDuration = 3n * 60n;
-  const sendDuration = 15n * 60n;
+  const now = BigInt(new Date().getTime()) / 1000n;
+  const receiveDeadline = now + 3n * 60n;
+  const sendDeadline = now + 15n * 60n;
 
   // Native actor holds original confirm key value, token actor - the refund one
   const nativeActorConfirmKeyHash = '0x0123456701234567012345670123456701234567012345670123456701234567';
@@ -50,8 +51,8 @@ test('Should be working example', async () => {
       receiver: tokenActor,
       receiverContract: tokenActorContract,
       amount: nativeAmount,
-      deadline: startTime + receiveDuration,
-      nonce: tokenActorNonce,
+      deadline: receiveDeadline,
+      nonce: tokenActorReceiveNonce,
       confirmKeyHash: nativeActorConfirmKeyHash,
       refundKeyHash: tokenActorRefundKeyHash,
       proofEventChain: tokenChainId,
@@ -64,9 +65,8 @@ test('Should be working example', async () => {
       receiver: nativeActor,
       token,
       amount: tokenAmount,
-      start: startTime,
-      duration: sendDuration,
-      group: tokenActorGroup,
+      deadline: sendDeadline,
+      nonce: tokenActorSendNonce,
       sendTokenDomain,
     }),
   ]);

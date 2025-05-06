@@ -30,24 +30,14 @@ export interface FlexEncodeSendNativeFlowParams {
   amount: FlexToHexValue;
 
   /**
-   * Start of send native operation _(6 bytes)_.
-   *
-   * Send operation cannot be performed earlier than this time. Also serves for controlling send operations
-   * _chronological_ order.
+   * Deadline of send token operation, i.e. time after which attempt to perform send operation will fail _(6 bytes)_.
    */
-  start: FlexToHexValue;
+  deadline: FlexToHexValue;
 
   /**
-   * Duration of send native operation _(6 bytes)_.
-   *
-   * Forms _deadline_ when added to {@link start}. Attempt to perform send operation after the deadline will fail.
+   * Nonce of send token operation selected by {@link sender} _(6 bytes)_.
    */
-  duration: FlexToHexValue;
-
-  /**
-   * Send native group index selected by the {@link sender} _(6 bytes)_.
-   */
-  group: FlexToHexValue;
+  nonce: FlexToHexValue;
 
   /**
    * Send native domain to calculate component hash for _(8 bytes)_.
@@ -90,9 +80,8 @@ export function flexEncodeSendNativeFlow(params: FlexEncodeSendNativeFlowParams)
     sender: params.sender,
     receiver: params.receiver,
     amount: params.amount,
-    start: params.start,
-    duration: params.duration,
-    group: params.group,
+    deadline: params.deadline,
+    nonce: params.nonce,
   });
   const sendNativeHash = flexCalcSendNativeHash({
     data: sendNativeData,
